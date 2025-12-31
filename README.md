@@ -28,7 +28,7 @@ Each component runs independently and communicates through well-defined interfac
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 ### Backend
 - Java 11+
@@ -59,7 +59,7 @@ Each component runs independently and communicates through well-defined interfac
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
