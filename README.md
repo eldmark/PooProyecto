@@ -107,7 +107,7 @@ Database (MariaDB): localhost:3306
 The backend exposes a REST API that handles authentication and business logic.
 Endpoints can be tested using tools such as Postman.
 
-API documentation: [documentation] (https://github.com/DiazMarco2005/PooProyecto/blob/main/shc-server/src/main/java/com/shc/shc_server/controller/reference.md)
+API documentation: [documentation](https://github.com/DiazMarco2005/PooProyecto/blob/main/shc-server/src/main/java/com/shc/shc_server/controller/reference.md)
 
 ### Database
 The MariaDB database is automatically initialized using Docker Compose.
