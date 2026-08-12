@@ -77,13 +77,19 @@ Each component runs independently and communicates through well-defined interfac
    ```bash
    git clone https://github.com/eldmark/PooProyecto.git
    cd PooProyecto
-2. Build the backend
+2. Create local configuration files
+   ```bash
+   cp docker-compose.yml.example docker-compose.yml
+   cp shc-client/.env.example shc-client/.env
+   ```
+
+3. Build the backend
    ```bash
    cd shc-server
    mvn clean install
 
 
-3. Run the complete environment
+4. Run the complete environment
    ```bash
    docker-compose up --build
 
@@ -141,5 +147,4 @@ All commits and contributions belong to the original authors of the project.
 
 This project is licensed under the GPL-2.0 License.
 See the LICENSE file for more details.
-
 

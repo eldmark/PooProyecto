@@ -1,28 +1,21 @@
-version: '3.8'
-
 services:
   shc-client:
     build: ./shc-client
     ports:
       - "5173:5173"
-    volumes:
-      - ./shc-client:/app
-    environment:
-      - EXPO_DEVTOOLS_PORT=5173
-    command: yarn expo start --web --port 5173
+    command: npx expo start --web --port 5173
 
   shc-server:
     build: ./shc-server
     ports:
       - "8080:8080"
     depends_on:
-      - shc-db
+      shc-db:
+        condition: service_healthy
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mariadb://shc-db:3306/shc-db
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=password
-    volumes:
-      - ./shc-server:/app
 
   shc-db:
     build: ./shc-db
@@ -31,8 +24,12 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=shc-db
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=password
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-uroot", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
     volumes:
       - shc_db_data:/var/lib/mysql
 

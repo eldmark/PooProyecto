@@ -102,7 +102,9 @@ shc-client/yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
+docker-compose.yml
 .vscode
 
 # typescript
